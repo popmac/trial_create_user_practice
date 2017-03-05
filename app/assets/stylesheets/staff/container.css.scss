@@ -1,12 +1,14 @@
+@import "colors";
+
 div#wrapper {
   div#container {
     h1 {
       margin: 0;
       padding: 9px 6px;
-      color: #eeeeee;
+      color: $light_gray;
       font-size: 16px;
       font-weight: normal;
-      background-color: #1a3333;
+      background-color: $very_dark_cyan;
     }
   }
 }
