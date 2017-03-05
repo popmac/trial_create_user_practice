@@ -18,6 +18,15 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :development do
