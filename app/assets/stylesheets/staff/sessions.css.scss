@@ -1,0 +1,36 @@
+@import "colors";
+
+div#wrapper {
+  div#container {
+    div#login-form {
+      width: 400px;
+      margin: 40px auto;
+      padding: 40px;
+      border: solid 4px $dark_cyan;
+      border-radius: 10px;
+      background-color: $very_light_gray;
+      h1 {
+        color: $very_dark_cyan;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: transparent;
+      }
+      form {
+        div {
+          padding: 10px;
+          label {
+            display: block;
+            padding: 6px 0;
+          }
+          input[type='text'], input[type='password'] {
+            width: 100%;
+            padding: 10px;
+          }
+          input[type='submit'] {
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+  }
+}
