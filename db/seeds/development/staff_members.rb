@@ -1,5 +1,5 @@
 StaffMember.create!(
-  email: 'taro@example.com',
+  email: 'hoge1@hoge.com',
   family_name: '山田',
   given_name: '太郎',
   family_name_kana: 'ヤマダ',
