@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root 'top#index'
     get 'login' => 'sessions#new', as: :login
     resource :session, only: [:create, :destroy], as: :session
+    resource :account, except: [:new, :create, :destroy]
   end
 
   namespace :admin do
