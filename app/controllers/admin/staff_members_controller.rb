@@ -26,6 +26,17 @@ class Admin::StaffMembersController < Admin::Base
     @staff_member = StaffMember.find(params[:id])
   end
 
+  def update
+    @staff_member = StaffMember.find(params[:id])
+    @staff_member.assign_attributes(staff_member_params)
+    if @staff_member.save
+      flash.notice = '職員アカウントを更新しました'
+      redirect_to :admin_staff_members
+    else
+      render action: 'edit'
+    end
+  end
+
   private
   def staff_member_params
     params.require(:staff_member).permit(:email, :family_name, :given_name, :family_name_kana, :given_name_kana, :start_date)
