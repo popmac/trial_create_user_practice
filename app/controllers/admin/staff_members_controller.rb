@@ -11,4 +11,8 @@ class Admin::StaffMembersController < Admin::Base
     staff_member = StaffMember.find(params[:id])
     redirect_to [:edit, :admin, staff_member]
   end
+
+  def edit
+    @staff_member = StaffMember.find(params[:id])
+  end
 end
