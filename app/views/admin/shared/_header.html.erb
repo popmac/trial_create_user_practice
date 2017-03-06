@@ -1,10 +1,12 @@
 <header>
   <span class="logo-mark">TrialCreateUserPractice</span>
+  <%= content_tag(:span, flash.notice, class: 'notice') if flash.notice %>
+  <%= content_tag(:span, flash.alert, class: 'alert') if flash.alert %>
   <%=
     if current_administrator
-      link_to 'ログアウト', :staff_session, method: :delete
+      link_to 'ログアウト', :admin_session, method: :delete
     else
-      link_to 'ログイン', :staff_login
+      link_to 'ログイン', :admin_login
     end
     %>
 </header>
