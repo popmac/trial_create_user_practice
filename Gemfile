@@ -28,6 +28,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'rails-controller-testing', require: false
 end
 
 group :development do
