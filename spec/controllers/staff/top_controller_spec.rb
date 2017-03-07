@@ -16,7 +16,7 @@ RSpec.describe Staff::TopController, type: :controller do
         expect(response).to render_template('staff/top/index')
       end
 
-      example '#停止フラグがセットされたら強制的にログアウト' do
+      example '停止フラグがセットされたら強制的にログアウト' do
         staff_member.update_column(:suspended, true)
         get :index
         expect(session[:staff_member]).to be_nil
