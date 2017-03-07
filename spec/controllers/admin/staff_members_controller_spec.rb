@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Admin::StaffMembersController, type: :controller do
+  context 'ログイン前' do
+    it_behaves_like 'a protected admin controller'
+  end
+end
+
+RSpec.describe Admin::StaffMembersController, type: :controller do
 
   let(:params_hash) { attributes_for(:staff_member) }
   let(:administrator) { create(:administrator) }
