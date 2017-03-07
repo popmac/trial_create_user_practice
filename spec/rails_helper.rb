@@ -57,4 +57,7 @@ RSpec.configure do |config|
 
   # ファクトリを簡単に呼び出せるよう、FactoryGirlの構文をインクルードする
   config.include FactoryGirl::Syntax::Methods
+
+  # shared_examplesを呼び込むように設定を追加した
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 end
