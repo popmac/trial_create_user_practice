@@ -10,4 +10,10 @@ class StaffMember < ApplicationRecord
       self.hashed_password = nil
     end
   end
+
+  def active?
+    # ユーザーとして有効かどうかを判定する
+    !suspended? && start_date <= Date.today &&
+      (end_date.nil? || end_date > Date.today)
+  end
 end

@@ -57,4 +57,15 @@ RSpec.configure do |config|
 
   # ファクトリを簡単に呼び出せるよう、FactoryGirlの構文をインクルードする
   config.include FactoryGirl::Syntax::Methods
+
+  # shared_examplesを呼び込むように設定を追加した
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
+  # rails-controller-testingの読み込みを遅延させているため設定を追加
+  require 'rails-controller-testing'
+  [:controller, :view, :request].each do |type|
+    config.include ::Rails::Controller::Testing::TestProcess, :type => type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
+    config.include ::Rails::Controller::Testing::Integration, :type => type
+  end
 end

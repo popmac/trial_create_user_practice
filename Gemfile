@@ -19,6 +19,7 @@ gem 'bcrypt'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
@@ -28,6 +29,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'rails-controller-testing', require: false
 end
 
 group :development do
