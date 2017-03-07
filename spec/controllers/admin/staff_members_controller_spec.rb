@@ -3,6 +3,11 @@ require 'rails_helper'
 RSpec.describe Admin::StaffMembersController, type: :controller do
 
   let(:params_hash) { attributes_for(:staff_member) }
+  let(:administrator) { create(:administrator) }
+
+  before do
+    session[:administrator_id] = administrator.id
+  end
 
   describe '#create' do
     example '職員一覧ページにリダイレクト' do
