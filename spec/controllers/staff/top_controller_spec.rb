@@ -22,6 +22,14 @@ RSpec.describe Staff::TopController, type: :controller do
         expect(session[:staff_member]).to be_nil
         expect(response).to redirect_to(staff_root_url)
       end
+
+      example 'セッションタイムアウト' do
+        session[:last_access_time] = Staff::Base::TIMEOUT.ago.advance(seconds: -1)
+        # session[:last_access_time] = 1.day.ago
+        get :index
+        expect(session[:staff_member_id]).to be_nil
+        expect(response).to redirect_to(staff_login_url)
+      end
     end
   end
 end
