@@ -7,6 +7,7 @@ RSpec.describe Admin::TopController, type: :controller do
 
     before do
       session[:administrator_id] = administrator.id
+      session[:last_access_time] = 1.second.ago
     end
 
     describe '#index' do
@@ -20,6 +21,13 @@ RSpec.describe Admin::TopController, type: :controller do
         get :index
         expect(session[:administrator_id]).to be_nil
         expect(response).to redirect_to(admin_root_url)
+      end
+
+      example 'セッションタイムアウト' do
+        session[:last_access_time] = Staff::Base::TIMEOUT.ago.advance(seconds: -1)
+        get :index
+        expect(session[:administrator_id]).to be_nil
+        expect(response).to redirect_to(admin_login_url)
       end
     end
   end
