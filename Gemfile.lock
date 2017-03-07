@@ -112,6 +112,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.4.2)
+      byebug (~> 9.0)
+      pry (~> 0.10)
     pry-rails (0.3.5)
       pry (>= 0.9.10)
     public_suffix (2.0.5)
@@ -226,6 +229,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mysql2 (= 0.3.18)
+  pry-byebug
   pry-rails
   rails (= 5.0.0.1)
   rails-controller-testing
