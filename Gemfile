@@ -15,6 +15,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'bcrypt'
+gem 'kaminari'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug'
