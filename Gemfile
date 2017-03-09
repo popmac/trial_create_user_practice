@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'date_validator'
 gem 'email_validator'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'byebug'
