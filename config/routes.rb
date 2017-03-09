@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy], as: :session
     # 単一リソースで追加
     resource :account, except: [:new, :create, :destroy]
+    resource :password, only: [:show, :edit, :update]
   end
 
   namespace :admin do
