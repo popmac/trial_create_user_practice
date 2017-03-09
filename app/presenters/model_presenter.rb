@@ -1,5 +1,6 @@
 class ModelPresenter
   attr_accessor :object, :view_context
+  delegate :raw, to: :view_context
 
   def initialize(object, view_context)
     @object = object
