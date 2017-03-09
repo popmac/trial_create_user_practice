@@ -8,6 +8,8 @@ class Admin::StaffEventsController < Admin::Base
     else
       @events = StaffEvent.order(occurred_at: :desc)
     end
+    # belongs_to :memberを設定しているので以下のように(:member)と書いている
+    @events = @events.includes(:member)
     @events = @events.page(params[:page])
   end
 end
