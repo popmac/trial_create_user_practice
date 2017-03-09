@@ -22,22 +22,22 @@ RSpec.describe StaffMember, type: :model do
     end
 
     example 'emailに含まれる全角英数字記号を半角に変換' do
-      member = member = create(:staff_member, email: 'ｔｅｓｔ＠ｅｘａｍｐｌｅ．ｃｏｍ')
+      member = create(:staff_member, email: 'ｔｅｓｔ＠ｅｘａｍｐｌｅ．ｃｏｍ')
       expect(member.email).to eq('test@example.com')
     end
 
     example 'email前後の全角スペースを除去' do
-      member = member = create(:staff_member, email: "\u{3000}test@example.com\u{3000}")
+      member = create(:staff_member, email: "\u{3000}test@example.com\u{3000}")
       expect(member.email).to eq('test@example.com')
     end
 
     example 'family_name_kanaに含まれるひらがなをカタカナに変換' do
-      member = member = create(:staff_member, family_name_kana: 'てすと')
+      member = create(:staff_member, family_name_kana: 'てすと')
       expect(member.family_name_kana).to eq('テスト')
     end
 
     example 'family_name_kanaに含まれる半角カナを全角カナに変換' do
-      member = member = create(:staff_member, family_name_kana: 'ﾃｽﾄ')
+      member = create(:staff_member, family_name_kana: 'ﾃｽﾄ')
       expect(member.family_name_kana).to eq('テスト')
     end
   end
