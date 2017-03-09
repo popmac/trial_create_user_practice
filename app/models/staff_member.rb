@@ -4,6 +4,7 @@ class StaffMember < ApplicationRecord
   has_many :events, class_name: 'StaffEvent', dependent: :destroy
 
   before_validation do
+    self.email = normalize_as_email(email)
     self.email_for_index = email.downcase if email
     self.family_name = normalize_as_name(family_name)
     self.given_name = normalize_as_name(given_name)
