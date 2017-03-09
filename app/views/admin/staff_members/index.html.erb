@@ -19,6 +19,7 @@
       <th>アクション</th>
     </tr>
     <% @staff_members.each do |m| %>
+      <% p = StaffMemberPresenter.new(m, self) %>
       <tr>
         <td><%= m.family_name %> <%= m.given_name %></td>
         <td><%= m.family_name_kana %> <%= m.given_name_kana %></td>
@@ -26,11 +27,7 @@
         <td class="date"><%= m.start_date.strftime('%Y/%m/%d') %></td>
         <!-- tryメソッドはレシーバーがnilであればnilを返し、nilでなければ第1引数に指定した名前のメソッドを呼び出す、第2引数以降はメソッドに引数として渡される -->
         <td class="date"><%= m.end_date.try(:strftime, '%Y/%m/%d') %></td>
-        <td class="boolean">
-          <!-- trueならば左側、falseなら右側の値が埋め込まれる -->
-          <!-- rawメソッドで&がエスケープ処理されないように制御している -->
-          <%= m.suspended? ? raw('&#x2611;') : raw('&#x2610;') %>
-        </td>
+        <td class="boolean"><%= p.suspended_mark %></td>
         <td class="actions">
           <%= link_to '編集', [:edit, :admin, m] %>
           <%= link_to 'Events', [:admin, m, :staff_events] %>
