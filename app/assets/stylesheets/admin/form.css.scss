@@ -29,6 +29,11 @@ div#wrapper {
             display: inline-block;
           }
         }
+        div.input-block {
+          input {
+            margin-right: $narrow * 2;
+          }
+        }
         div.notes {
           font-size: $small;
           text-align: right;
