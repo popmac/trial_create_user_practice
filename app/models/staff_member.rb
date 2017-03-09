@@ -31,6 +31,14 @@ class StaffMember < ApplicationRecord
     allow_blank: true
   }
 
+  validates :email_for_index, uniqueness: { allow_blank: true }
+  after_validation do
+    if errors.include?(:email_for_index)
+      errors.add(:email, :taken)
+      errors.delete(:email_for_index)
+    end
+  end
+
   def password=(raw_password)
     if raw_password.kind_of?(String)
       self.hashed_password = BCrypt::Password.create(raw_password)
