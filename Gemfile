@@ -17,6 +17,8 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'bcrypt'
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'date_validator'
+gem 'email_validator'
 
 group :development, :test do
   gem 'byebug'
