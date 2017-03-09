@@ -12,10 +12,13 @@ class StaffMember < ApplicationRecord
     self.given_name_kana = normalize_as_furigana(given_name_kana)
   end
 
+  # 漢字、ひらがな、カタカナ、アルファベットだけを含む文字列の正規表現
+  HUMAN_NAME_REGEXP = /\A[\p{han}\p{hiragana}\p{katakana}\u{30fc}\p{alpha}]+\z/
   KATAKANA_REGEXP = /\A[\p{katakana}\u{30fc}]+\z/
 
   validates :email, presence: true, email: { allow_blank: true }
-  validates :family_name, :given_name, presence: true
+  validates :family_name, :given_name, presence: true,
+    format: { with: HUMAN_NAME_REGEXP, allow_blank: true }
   # formatにallow_blank: trueを設定する理由
   # presence: trueのバリデーションが通らない場合、formatのバリデーションも通らなくなり、エラーメッセージが重複するため
   validates :family_name_kana, :given_name_kana, presence: true,
