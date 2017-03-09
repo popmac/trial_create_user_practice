@@ -9,9 +9,8 @@ class Admin::StaffEventsController < Admin::Base
       # この時点では@eventsの中身は、StaffEvent(id: integer, staff_member_id: integer, type: string, created_at: datetime)、となっている
       @events = StaffEvent
     end
-    @events = @events.order(occurred_at: :desc)
     # belongs_to :memberを設定しているので以下のように(:member)と書いている
-    @events = @events.includes(:member)
-    @events = @events.page(params[:page])
+    @events = @events.order(occurred_at: :desc)
+      .includes(:member).page(params[:page])
   end
 end
