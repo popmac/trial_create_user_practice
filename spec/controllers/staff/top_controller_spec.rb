@@ -13,7 +13,7 @@ RSpec.describe Staff::TopController, type: :controller do
     describe '#index' do
       example '通常はstaff/top/indexを表示' do
         get :index
-        expect(response).to render_template('staff/top/index')
+        expect(response).to render_template('staff/top/dashboard')
       end
 
       example '停止フラグがセットされたら強制的にログアウト' do
