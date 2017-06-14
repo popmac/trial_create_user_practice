@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307154829) do
+ActiveRecord::Schema.define(version: 20170614073339) do
 
   create_table "administrators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                           null: false
@@ -20,6 +20,22 @@ ActiveRecord::Schema.define(version: 20170307154829) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["email_for_index"], name: "index_administrators_on_email_for_index", unique: true, using: :btree
+  end
+
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email",            null: false
+    t.string   "email_for_index",  null: false
+    t.string   "family_name",      null: false
+    t.string   "given_name",       null: false
+    t.string   "family_name_kana", null: false
+    t.string   "given_name_kana",  null: false
+    t.string   "gender"
+    t.date     "birthday"
+    t.string   "hashed_password"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["email_for_index"], name: "index_customers_on_email_for_index", unique: true, using: :btree
+    t.index ["family_name_kana", "given_name_kana"], name: "index_customers_on_family_name_kana_and_given_name_kana", using: :btree
   end
 
   create_table "staff_events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
