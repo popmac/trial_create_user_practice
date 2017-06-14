@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614073339) do
+ActiveRecord::Schema.define(version: 20170614073615) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "customer_id",                null: false
+    t.string   "type",                       null: false
+    t.string   "postal_code",                null: false
+    t.string   "prefecture",                 null: false
+    t.string   "city",                       null: false
+    t.string   "address1",                   null: false
+    t.string   "address2",                   null: false
+    t.string   "company_name",  default: "", null: false
+    t.string   "division_name", default: "", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["customer_id"], name: "index_addresses_on_customer_id", using: :btree
+    t.index ["type", "customer_id"], name: "index_addresses_on_type_and_customer_id", unique: true, using: :btree
+  end
 
   create_table "administrators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                           null: false
@@ -64,5 +80,6 @@ ActiveRecord::Schema.define(version: 20170614073339) do
     t.index ["family_name_kana", "given_name_kana"], name: "index_staff_members_on_family_name_kana_and_given_name_kana", using: :btree
   end
 
+  add_foreign_key "addresses", "customers"
   add_foreign_key "staff_events", "staff_members"
 end
