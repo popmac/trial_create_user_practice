@@ -38,6 +38,16 @@ class Staff::CustomerForm
 
     if inputs_home_address
       customer.home_address.assign_attributes(home_address_params)
+
+      phones = phone_params(:home_address).fetch(:phones)
+      customer.home_address.phones.size.times do |index|
+        attributes = phones[index.to_s]
+        if attributes && attributes[:number].present?
+          customer.home_address.phones[index].assign_attributes(attributes)
+        else
+          customer.home_address.phones[index].mark_for_destruction
+        end
+      end
     else
       customer.home_address.mark_for_destruction
     end
