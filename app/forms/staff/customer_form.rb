@@ -61,22 +61,22 @@ class Staff::CustomerForm
   private
   def customer_params
     @params.require(:customer).permit(
-    :email, :password,
-    :family_name, :given_name, :family_name_kana, :given_name_kana,
-    :birthday, :gender
+      :email, :password,
+      :family_name, :given_name, :family_name_kana, :given_name_kana,
+      :birthday, :gender
     )
   end
 
   def home_address_params
     @params.require(:home_address).permit(
-    :postal_code, :prefecture, :city, :address1, :address2,
+      :postal_code, :prefecture, :city, :address1, :address2,
     )
   end
 
   def work_address_params
     @params.require(:work_address).permit(
-    :postal_code, :prefecture, :city, :address1, :address2,
-    :company_name, :division_name
+      :postal_code, :prefecture, :city, :address1, :address2,
+      :company_name, :division_name
     )
   end
 
