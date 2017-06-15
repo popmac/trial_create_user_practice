@@ -14,6 +14,9 @@ class Staff::CustomerForm
     self.inputs_work_address = @customer.work_address.present?
     @customer.build_home_address unless @customer.home_address
     @customer.build_work_address unless @customer.work_address
+    (2 - @customer.home_address.phones.size).times do
+      @customer.home_address.phones.build
+    end
   end
 
   def assign_attributes(params = {})
