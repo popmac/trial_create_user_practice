@@ -53,7 +53,8 @@ class Staff::CustomersController < Staff::Base
       params.require(:search).permit(
         :family_name_kana, :given_name_kana,
         :birth_year, :birth_month, :birth_mday, :gender,
-        :address_type, :prefecture, :city, :postal_code, :phone_number)
+        :address_type, :prefecture, :city, :postal_code,
+        :phone_number, :last_four_digits)
     end
   end
 end
