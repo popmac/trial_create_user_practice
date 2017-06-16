@@ -52,8 +52,8 @@ class Staff::CustomersController < Staff::Base
     if params[:search].present?
       params.require(:search).permit(
         :family_name_kana, :given_name_kana,
-        :birth_year, :birth_month, :birth_mday,
-        :address_type, :prefecture, :city, :phone_number)
+        :birth_year, :birth_month, :birth_mday, :gender,
+        :address_type, :prefecture, :city, :postal_code, :phone_number)
     end
   end
 end
