@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616104526) do
+ActiveRecord::Schema.define(version: 20170616105345) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "customer_id",                null: false
@@ -81,8 +81,10 @@ ActiveRecord::Schema.define(version: 20170616104526) do
     t.boolean  "primary",          default: false, null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "last_four_digits"
     t.index ["address_id"], name: "index_phones_on_address_id", using: :btree
     t.index ["customer_id"], name: "index_phones_on_customer_id", using: :btree
+    t.index ["last_four_digits"], name: "index_phones_on_last_four_digits", using: :btree
     t.index ["number_for_index"], name: "index_phones_on_number_for_index", using: :btree
   end
 
