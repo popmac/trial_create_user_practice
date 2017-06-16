@@ -9,10 +9,6 @@ class Customer < ApplicationRecord
   has_many :personal_phones, -> { where(address_id: nil).order(:id) },
     class_name: 'Phone', autosave: true
 
-  before_validation do
-    self.email_for_index = email.downcase if email
-  end
-
   validates :gender, inclusion: { in: %w(male female), allow_blank: true }
   validates :birthday, date: {
     after: Date.new(1900, 1, 1),
