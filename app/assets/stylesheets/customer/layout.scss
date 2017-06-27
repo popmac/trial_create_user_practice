@@ -1,35 +1,42 @@
-@import "colors";
+@import 'colors';
+@import 'dimensions';
 
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 div#wrapper {
   position: relative;
   box-sizing: border-box;
   min-height: 100%;
   margin: 0 auto;
-  padding-bottom: 20px;
+  padding-bottom: ($wide + $moderate) * 2 + $standard_line_height;
   background-color: $gray;
 }
 header {
-  padding: 5px;
+  padding: $moderate;
+  background-color: $dark_yellow;
   color: $very_light_gray;
-  background-color: $dark_cyan;
-  span.logo-mark {
+  a.logo-mark {
+    float: none;
+    text-decoration: none;
     font-weight: bold;
+  }
+  a {
+    float: right;
+    color: $very_light_gray;
   }
 }
 footer {
-  position: absolute;
   bottom: 0;
+  position: absolute;
   width: 100%;
-  color: $very_light_gray;
   background-color: $dark_gray;
+  color: $very_light_gray;
   p {
-    margin: 0;
-    padding: 5px;
     text-align: center;
+    padding: $moderate;
+    margin: 0;
   }
 }
