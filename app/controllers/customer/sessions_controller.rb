@@ -39,6 +39,6 @@ class Customer::SessionsController < Customer::Base
 
   private
   def customer_login_params
-    params.require(:customer_login_form).permit(:email, :password)
+    params.require(:customer_login_form).permit(:email, :password, :remember_me)
   end
 end
