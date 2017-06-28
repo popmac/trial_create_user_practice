@@ -1,10 +1,10 @@
 StaffMember.create!(
-  email: 'hoge1@hoge.com',
+  email: 'test1@example.com',
   family_name: '山田',
   given_name: '太郎',
   family_name_kana: 'ヤマダ',
   given_name_kana: 'タロウ',
-  password: 'aaaa1111',
+  password: 'password',
   start_date: Date.today
 )
 
@@ -33,7 +33,7 @@ given_names = %w{
     given_name: gn[0],
     family_name_kana: fn[1],
     given_name_kana: gn[1],
-    password: 'aaaa1111',
+    password: 'password',
     start_date: (100 - n).days.ago.to_date,
     end_date: n == 0 ? Date.today : nil,
     suspended: n == 1

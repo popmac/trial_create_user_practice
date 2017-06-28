@@ -1,10 +1,10 @@
-@import "colors";
-@import "dimensions";
+@import 'colors';
+@import 'dimensions';
 
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 div#wrapper {
   position: relative;
@@ -16,8 +16,8 @@ div#wrapper {
 }
 header {
   padding: $moderate;
-  color: $very_light_gray;
   background-color: $dark_cyan;
+  color: $very_light_gray;
   a.logo-mark {
     float: none;
     text-decoration: none;
@@ -25,19 +25,19 @@ header {
   }
   a {
     float: right;
-    margin-left: $wide;
     color: $very_light_gray;
+    margin-left: $wide;
   }
 }
 footer {
-  position: absolute;
   bottom: 0;
+  position: absolute;
   width: 100%;
-  color: $very_light_gray;
   background-color: $dark_gray;
+  color: $very_light_gray;
   p {
-    margin: 0;
-    padding: $moderate;
     text-align: center;
+    padding: $moderate;
+    margin: 0;
   }
 }
